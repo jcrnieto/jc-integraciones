@@ -9,34 +9,51 @@ const capacidades = [
 ];
 
 export default function SobreMi() {
-    return (
-      <section className="section bg-[#14263d] text-white">
-        <div className="container grid gap-10 md:grid-cols-2 md:gap-16">
-          <div>
-            <p className="mb-4 text-xs font-semibold tracking-[.14em] text-blue-200 uppercase">
-              Contacto directo. Ejecución técnica.
+  return (
+    <section className="section border-t border-slate-800 bg-slate-900 text-white">
+      <div className="container grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-950/60 px-3.5 py-1 text-xs font-semibold text-blue-300">
+            <span>Contacto directo · Ejecución técnica</span>
+          </div>
+
+          <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-[2.6rem] lg:leading-[1.16]">
+            Experiencia técnica aplicada a proyectos SAP reales
+          </h2>
+
+          <p className="mt-6 text-base leading-relaxed text-slate-300 sm:text-lg">
+            Trabajo directamente sobre proyectos de integración SAP, aportando capacidad técnica y ejecución hands-on.
+          </p>
+
+          <div className="mt-8 rounded-xl border border-blue-500/30 bg-blue-950/50 p-5 sm:p-6">
+            <p className="text-xs font-bold tracking-wider text-blue-400 uppercase">
+              Diferencial
             </p>
-            <h2 className="section-title">
-              Experiencia técnica aplicada a proyectos SAP reales
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-300">
-              Trabajo directamente sobre proyectos de integración SAP, aportando capacidad técnica y ejecución hands-on.
-            </p>
-            <p className="mt-8 border-l-2 border-blue-400 pl-5 leading-7">
+            <p className="mt-2 text-base font-medium leading-relaxed text-white">
               Trabajás directamente conmigo como consultor independiente, sin capas comerciales ni intermediarios.
             </p>
           </div>
-          <ul className="grid content-start gap-5 md:pt-10">
-            {capacidades.map((item) => 
-              <li key={item} className="flex gap-4 border-b border-slate-600 pb-4 text-slate-200">
-                <span aria-hidden="true" className="text-blue-300">
-                  ✓
-                </span>
-                {item}
-              </li>
-            )}
-          </ul>
         </div>
-      </section>
-    );
+
+        <div className="grid gap-3 sm:grid-cols-1">
+          {capacidades.map((item) => (
+            <div
+              key={item}
+              className="group flex items-center gap-3.5 rounded-lg border border-slate-800 bg-slate-800/40 p-3.5 transition-colors duration-150 hover:border-slate-700 hover:bg-slate-800/70"
+            >
+              <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-400">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <span className="text-sm font-medium text-slate-200 group-hover:text-white">
+                {item}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
+
