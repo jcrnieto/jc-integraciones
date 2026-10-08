@@ -22,7 +22,7 @@ export default function SobreMi() {
           </h2>
 
           <p className="mt-6 text-base leading-relaxed text-slate-300 sm:text-lg">
-            Trabajo directamente sobre proyectos de integración SAP, aportando capacidad técnica y ejecución hands-on.
+            Trabajo directamente sobre proyectos de integración SAP, aportando experiencia y capacidad técnica.
           </p>
 
         </div>

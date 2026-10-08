@@ -8,47 +8,36 @@ const situaciones = [
 
 export default function Problemas() {
   return (
-    <section className="section bg-white">
-      <div className="container grid items-start gap-12 lg:grid-cols-[1.1fr_1.2fr] lg:gap-16">
-        <div>
-          <p className="eyebrow">
-            Cuando tu equipo necesita apoyo
-          </p>
-          <h2 className="section-title">
-            Cuando aparece un proyecto y tu equipo no tiene suficiente capacidad disponible
+    <section className="section bg-white" aria-labelledby="problemas-titulo">
+      <div className="container">
+        <div className="mx-auto max-w-4xl">
+          <h2 id="problemas-titulo" className="section-title">
+            ¿Tu equipo necesita apoyo, pero no querés sumar personal permanente?
           </h2>
-          <p className="section-intro">
-            Hay momentos en los que una consultora necesita sumar experiencia en integración sin incorporar estructura permanente.
-          </p>
 
-          <div className="mt-8 rounded-xl border border-blue-100 bg-blue-50/60 p-5 sm:p-6">
-            <div className="flex items-center gap-2 text-xs font-bold tracking-wider text-blue-700 uppercase">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-600"></span>
-              Flexibilidad operativa
-            </div>
-            <p className="mt-2.5 text-base font-semibold leading-relaxed text-slate-800">
-              En esos casos, podés sumar capacidad especializada solo durante el tiempo que la necesitás.
+          <ol className="mt-8 space-y-3 sm:mt-10 sm:space-y-4">
+            {situaciones.map((item, index) => (
+              <li
+                key={item}
+                className="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50/40 p-4 sm:items-center sm:gap-5 sm:p-5"
+              >
+                <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-sm font-bold text-blue-800">
+                  {index + 1}
+                </span>
+                <p className="text-sm font-medium leading-relaxed text-slate-700 sm:text-base">
+                  {item}
+                </p>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mt-6 rounded-xl border border-blue-100 bg-blue-50/60 p-5 sm:mt-8 sm:p-6">
+            <p className="text-base font-semibold leading-relaxed text-slate-800 sm:text-lg">
+              En esos casos, podés contratar mi servicio especializado solo el tiempo que lo necesites.
             </p>
           </div>
-        </div>
-
-        <div className="space-y-3">
-          {situaciones.map((item, index) => (
-            <div
-              key={item}
-              className="group flex items-start gap-4 rounded-xl border border-slate-200/80 bg-slate-50/40 p-4.5 transition-all duration-150 hover:border-blue-200 hover:bg-white hover:shadow-xs"
-            >
-              <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-100 text-xs font-bold text-blue-800 transition-colors group-hover:bg-blue-600 group-hover:text-white">
-                {index + 1}
-              </div>
-              <p className="text-[0.95rem] font-medium leading-relaxed text-slate-700 group-hover:text-slate-900">
-                {item}
-              </p>
-            </div>
-          ))}
         </div>
       </div>
     </section>
   );
 }
-

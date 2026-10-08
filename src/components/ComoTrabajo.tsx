@@ -17,7 +17,7 @@ const modalidades: Modalidad[] = [
   {
     titulo: "Por proyecto",
     subtitulo: "Alcance e hitos definidos",
-    badge: "Por entregables",
+    badge: "Alcance definido",
     texto: "Para integraciones con un alcance suficientemente definido, con entregables y objetivos acordados.",
     casos: "Desarrollo de nuevas interfaces, migraciones o integraciones punta a punta.",
   },
@@ -32,26 +32,23 @@ const modalidades: Modalidad[] = [
 
 export default function ComoTrabajo() {
   return (
-    <section id="como-trabajo" className="section bg-white">
+    <section id="como-trabajo" aria-labelledby="modalidades-titulo" className="section bg-white">
       <div className="container">
-        <p className="eyebrow">
+        <h2 id="modalidades-titulo" className="section-title">
           Modalidades de trabajo
-        </p>
-        <h2 className="section-title">
-          Sumá capacidad solo cuando la necesitás
         </h2>
-        <p className="section-intro">
+        <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
           Me incorporo de forma flexible según el alcance y la duración del proyecto.
         </p>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 grid gap-5 lg:mt-10 lg:grid-cols-3">
           {modalidades.map((item) => (
             <article
               key={item.titulo}
-              className="flex flex-col justify-between rounded-xl border border-slate-200/90 bg-slate-50/40 p-7 transition-all duration-200 hover:border-blue-200 hover:bg-white hover:shadow-md"
+              className="flex flex-col rounded-xl border border-slate-200 bg-slate-50/40 p-5 sm:p-6"
             >
-              <div>
-                <div className="flex items-center justify-between gap-2">
+              <div className="pb-6">
+                <div className="flex items-center gap-2">
                   <span className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-0.5 text-xs font-semibold text-blue-700">
                     {item.badge}
                   </span>
@@ -59,7 +56,7 @@ export default function ComoTrabajo() {
                 <h3 className="mt-4 text-xl font-bold text-slate-900">
                   {item.titulo}
                 </h3>
-                <p className="mt-1 text-xs font-medium text-slate-500">
+                <p className="mt-1 text-sm font-medium text-slate-500">
                   {item.subtitulo}
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-slate-600">
@@ -67,7 +64,7 @@ export default function ComoTrabajo() {
                 </p>
               </div>
 
-              <div className="mt-6 border-t border-slate-200/70 pt-4">
+              <div className="mt-auto border-t border-slate-200/70 pt-4">
                 <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
                   Ideal para
                 </p>
@@ -79,24 +76,7 @@ export default function ComoTrabajo() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-2xl border border-slate-800 bg-slate-900 p-8 text-white shadow-md md:flex-row md:items-center">
-          <div>
-            <span className="text-xs font-bold tracking-wider text-blue-400 uppercase">
-              Bajo overhead
-            </span>
-            <p className="mt-1.5 max-w-2xl text-base font-medium leading-relaxed text-slate-200">
-              Trabajás directamente conmigo como consultor independiente, sin sumar estructura fija ni asumir el costo permanente de un perfil especializado.
-            </p>
-          </div>
-          <a
-            href="#contacto"
-            className="cta shrink-0 bg-blue-600 hover:bg-blue-500 w-full md:w-auto shadow-sm"
-          >
-            Consultar disponibilidad
-          </a>
-        </div>
       </div>
     </section>
   );
 }
-

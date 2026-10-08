@@ -86,10 +86,10 @@ export default function Contacto() {
             Hablemos de tu proyecto
           </p>
           <h2 className="section-title">
-            ¿Necesitás capacidad de SAP Integration Suite para un proyecto?
+            ¿Necesitás un especialista en SAP Integration Suite para tu proyecto?
           </h2>
           <p className="section-intro">
-            Contame brevemente qué necesitás y te respondo para evaluar disponibilidad y encaje.
+            Contame brevemente qué necesitás y te respondo para evaluar cómo puedo ayudarte.
           </p>
 
           <div className="mt-10 space-y-4">

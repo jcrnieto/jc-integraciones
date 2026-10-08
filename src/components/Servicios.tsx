@@ -76,7 +76,7 @@ export default function Servicios() {
           Capacidades técnicas
         </p>
         <h2 className="section-title">
-          Capacidad hands-on en SAP Integration Suite
+          Experiencia técnica en SAP Integration Suite.
         </h2>
         <p className="section-intro">
           Me incorporo al proyecto para apoyar el diseño, desarrollo y entrega de integraciones SAP, desde la estimación técnica inicial hasta la implementación.

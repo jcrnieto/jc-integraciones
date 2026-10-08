@@ -37,7 +37,7 @@ export default function Hero() {
               </svg>
             </a>
             <span className="text-xs font-medium text-slate-300 sm:pl-2">
-              Respuesta en menos de 24 hs hábiles
+              Respuesta directa y rápida a tu email.
             </span>
           </div>
 
