@@ -99,6 +99,14 @@ section {
   transform: translateY(0);
 }
 
+.hero-cta {
+  background: #2563eb;
+}
+
+.hero-cta:hover {
+  background: #1d4ed8;
+}
+
 .cta:disabled {
   opacity: 0.65;
   cursor: wait;
@@ -148,6 +156,182 @@ section {
   transform: translateY(0);
 }
 
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 44px;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #0f172a;
+  cursor: pointer;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.menu-toggle:hover,
+.menu-toggle[data-open="true"] {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1d4ed8;
+}
+
+.menu-toggle-icon {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.menu-toggle-icon span {
+  position: absolute;
+  right: 0;
+  top: 7px;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 250ms ease, width 250ms ease;
+}
+
+.menu-toggle-icon span:last-child {
+  top: 14px;
+  width: 14px;
+}
+
+.menu-toggle[data-open="true"] .menu-toggle-icon span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.menu-toggle[data-open="true"] .menu-toggle-icon span:last-child {
+  width: 22px;
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+.menu-backdrop {
+  position: absolute;
+  inset: 0;
+  top: 100%;
+  height: 100dvh;
+  background: rgb(15 23 42 / 35%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 250ms ease, visibility 250ms;
+}
+
+.mobile-navigation {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0.75rem;
+  right: 0.75rem;
+  max-width: 36rem;
+  margin-left: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 20px 50px rgb(15 23 42 / 16%);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 250ms ease, transform 250ms ease, visibility 250ms;
+}
+
+.mobile-navigation[data-open="true"],
+.menu-backdrop[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-navigation-inner {
+  max-height: calc(100dvh - 100px);
+  overflow-y: auto;
+  padding: 1.25rem;
+}
+
+.menu-intro {
+  padding: 0.25rem 0.5rem 1.25rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  min-height: 80px;
+  padding: 0.875rem 0.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  border-radius: 0.5rem;
+  color: #0f172a;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.menu-link:hover {
+  background: #f8fafc;
+  color: #1d4ed8;
+}
+
+.menu-link-number {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.menu-link-title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.menu-link-arrow {
+  color: #1d4ed8;
+}
+
+.menu-contact {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border-radius: 0.875rem;
+  background: #f8fafc;
+}
+
+@media (min-width: 1024px) {
+  .menu-toggle { display: none; }
+
+  .mobile-navigation {
+    position: static;
+    max-width: none;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+
+  .mobile-navigation-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .menu-link {
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    color: #475569;
+  }
+
+  .menu-link:hover { background: transparent; }
+  .menu-link-title { font-size: 1rem; font-weight: 500; }
+  .menu-contact { margin: 0; padding: 0; background: transparent; }
+}
+
 .integration-flow {
   stroke-dasharray: 2 98;
   animation: integration-flow 5s linear infinite;
@@ -179,6 +363,14 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .menu-toggle,
+  .menu-toggle-icon span,
+  .menu-backdrop,
+  .mobile-navigation,
+  .menu-link {
+    transition: none;
+  }
+
   .integration-flow,
   .integration-core-glow {
     animation: none;

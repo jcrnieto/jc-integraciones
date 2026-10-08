@@ -42,7 +42,7 @@ export default function Navbar() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md transition-colors"
+      className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white"
     >
       <div className="container flex items-center justify-between py-2 lg:py-2.5">
         <a
@@ -61,64 +61,68 @@ export default function Navbar() {
           aria-expanded={menuAbierto}
           aria-controls="menu-principal"
           onClick={() => setMenuAbierto((abierto) => !abierto)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-100 lg:hidden"
+          className="menu-toggle lg:hidden"
+          data-open={menuAbierto}
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            aria-hidden="true"
-          >
-            {menuAbierto ? (
-              <path d="M18 6L6 18M6 6l12 12" />
-            ) : (
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
+          <span className="text-xs font-semibold">{menuAbierto ? "Cerrar" : "Menú"}</span>
+          <span className="menu-toggle-icon" aria-hidden="true">
+            <span />
+            <span />
+          </span>
         </button>
+
+        <div
+          className="menu-backdrop lg:hidden"
+          data-open={menuAbierto}
+          aria-hidden="true"
+          onClick={() => setMenuAbierto(false)}
+        />
 
         <nav
           id="menu-principal"
           aria-label="Navegación principal"
-          className={`${
-            menuAbierto ? "flex" : "hidden"
-          } absolute top-full left-0 w-full flex-col border-b border-slate-200 bg-white/95 px-6 py-4 shadow-lg backdrop-blur-md lg:static lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-8 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none`}
+          data-open={menuAbierto}
+          className="mobile-navigation"
         >
-          <a
-            href="#servicios"
-            onClick={() => setMenuAbierto(false)}
-            className="flex min-h-11 items-center font-medium text-slate-600 transition-colors hover:text-blue-700 lg:min-h-0"
-          >
-            Servicios
-          </a>
-          <a
-            href="#como-trabajo"
-            onClick={() => setMenuAbierto(false)}
-            className="flex min-h-11 items-center font-medium text-slate-600 transition-colors hover:text-blue-700 lg:min-h-0"
-          >
-            Cómo trabajo
-          </a>
-          <a
-            href="#contacto"
-            onClick={() => setMenuAbierto(false)}
-            className="flex min-h-11 items-center font-medium text-slate-600 transition-colors hover:text-blue-700 lg:min-h-0"
-          >
-            Contacto
-          </a>
-          <a
-            href="#contacto"
-            onClick={() => setMenuAbierto(false)}
-            className="cta mt-2 w-full text-sm font-semibold lg:mt-0 lg:w-auto"
-          >
-            Consultar disponibilidad
-          </a>
+          <div className="mobile-navigation-inner">
+            <div className="menu-intro lg:hidden">
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">JC Integraciones</span>
+              <p className="mt-2 text-sm text-slate-500">Capacidad especializada para tu proyecto SAP.</p>
+            </div>
+            {[
+              { href: "#servicios", titulo: "Servicios", detalle: "Diseño y desarrollo de integraciones" },
+              { href: "#como-trabajo", titulo: "Cómo trabajo", detalle: "Apoyo puntual, por proyecto o temporal" },
+              { href: "#contacto", titulo: "Contacto", detalle: "Contame qué necesita tu equipo" },
+            ].map((enlace, indice) => (
+              <a
+                key={enlace.href}
+                href={enlace.href}
+                onClick={() => setMenuAbierto(false)}
+                className="menu-link"
+              >
+                <span className="menu-link-number lg:hidden">0{indice + 1}</span>
+                <span className="flex-1">
+                  <span className="menu-link-title">{enlace.titulo}</span>
+                  <span className="mt-1 block text-xs font-normal text-slate-500 lg:hidden">{enlace.detalle}</span>
+                </span>
+                <svg className="menu-link-arrow lg:hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
+              </a>
+            ))}
+            <div className="menu-contact">
+              <a
+                href="#contacto"
+                onClick={() => setMenuAbierto(false)}
+                className="cta w-full text-sm font-semibold lg:w-auto"
+              >
+                Consultar disponibilidad
+              </a>
+              <p className="mt-3 text-center text-xs text-slate-500 lg:hidden">Contacto directo. Sin compromiso.</p>
+            </div>
+          </div>
         </nav>
       </div>
     </header>
   );
 }
-

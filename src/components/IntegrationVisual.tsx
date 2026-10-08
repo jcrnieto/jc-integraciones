@@ -25,11 +25,18 @@ function Icono({ tipo }: { tipo: string }) {
 
 export default function IntegrationVisual() {
   return (
-    <figure className="integration-visual relative mx-auto w-full max-w-xl overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-xl shadow-slate-900/10">
+    <figure className="integration-visual relative mx-auto w-full max-w-xl">
       <svg viewBox="0 0 640 550" className="block h-auto w-full" fontFamily="Arial, Helvetica, sans-serif" role="img" aria-labelledby="integration-title integration-description">
         <title id="integration-title">SAP Integration Suite conecta tu ecosistema</title>
         <desc id="integration-description">Un núcleo central conecta S/4HANA, Sales Cloud, Service Cloud, QAD, APIs, HANA, sistemas externos y aplicaciones propias. Las líneas animadas representan el flujo de datos.</desc>
         <defs>
+          <radialGradient id="integration-grid-fade">
+            <stop offset="0.55" stopColor="white" />
+            <stop offset="1" stopColor="black" />
+          </radialGradient>
+          <mask id="integration-grid-mask">
+            <rect width="640" height="550" fill="url(#integration-grid-fade)" />
+          </mask>
           <pattern id="integration-grid" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="matrix(1 .5 -1 .5 320 20)">
             <path d="M48 0H0V48" fill="none" stroke="#334155" strokeWidth=".6" opacity=".5" />
           </pattern>
@@ -49,8 +56,8 @@ export default function IntegrationVisual() {
             <feGaussianBlur stdDeviation="3" />
           </filter>
         </defs>
-        <rect width="640" height="550" fill="#0f172a" />
-        <rect width="640" height="550" fill="url(#integration-grid)" />
+        
+        <rect width="640" height="550" fill="url(#integration-grid)" mask="url(#integration-grid-mask)" />
         <ellipse cx="320" cy="280" rx="245" ry="225" fill="url(#integration-halo)" />
         <g fill="none">
           {sistemas.map((sistema, indice) => (
