@@ -25,14 +25,6 @@ export default function SobreMi() {
             Trabajo directamente sobre proyectos de integración SAP, aportando capacidad técnica y ejecución hands-on.
           </p>
 
-          <div className="mt-8 rounded-xl border border-blue-500/30 bg-blue-950/50 p-5 sm:p-6">
-            <p className="text-xs font-bold tracking-wider text-blue-400 uppercase">
-              Diferencial
-            </p>
-            <p className="mt-2 text-base font-medium leading-relaxed text-white">
-              Trabajás directamente conmigo como consultor independiente, sin capas comerciales ni intermediarios.
-            </p>
-          </div>
         </div>
 
         <div className="grid gap-3 sm:grid-cols-1">

@@ -102,7 +102,7 @@ export default function Contacto() {
               <div>
                 <h3 className="text-sm font-semibold text-slate-900">Respuesta rápida</h3>
                 <p className="mt-0.5 text-xs leading-relaxed text-slate-500">
-                  Respondo en menos de 24 horas hábiles directamente a tu email.
+                  Respuesta directa y rápida a tu email.
                 </p>
               </div>
             </div>

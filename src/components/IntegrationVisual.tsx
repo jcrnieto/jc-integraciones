@@ -4,7 +4,7 @@ const sistemas = [
   { nombre: "S/4HANA", x: 162, y: 96, icono: "sap", ruta: "M162 124 C162 175 230 144 250 224" },
   { nombre: "Sales Cloud", x: 100, y: 210, icono: "cloud", ruta: "M100 238 C148 276 192 230 239 258" },
   { nombre: "Service Cloud", x: 100, y: 340, icono: "cloud", ruta: "M100 340 C160 340 177 297 239 292" },
-  { nombre: "QAD", x: 174, y: 452, icono: "app", ruta: "M174 424 C175 368 251 409 285 344" },
+  { nombre: "On-Premise", x: 174, y: 452, icono: "app", ruta: "M174 424 C175 368 251 409 285 344" },
   { nombre: "APIs", x: 478, y: 96, icono: "api", ruta: "M478 124 C478 175 410 144 390 224" },
   { nombre: "HANA", x: 540, y: 210, icono: "database", ruta: "M540 238 C492 276 448 230 401 258" },
   { nombre: "Sistemas externos", x: 540, y: 340, icono: "api", ruta: "M540 340 C480 340 463 297 401 292" },
