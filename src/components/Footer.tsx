@@ -23,7 +23,7 @@ export default function Footer() {
           Consultor independiente · SAP Integration Suite
         </p>
         <p className="text-center text-sm leading-6 text-slate-500 lg:justify-self-end lg:text-right">
-          © {new Date().getFullYear()} Juan Nietos
+          © {new Date().getFullYear()} JC Integraciones. Todos los derechos reservados.
         </p>
       </div>
     </footer>

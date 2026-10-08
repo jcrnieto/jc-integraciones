@@ -36,15 +36,24 @@ Todos los CTA llevan a `#contacto`. Los componentes se renderizan en el servidor
 
 ## Recepción de consultas
 
-Configurar en `.env.local` y en producción:
+Las consultas se envían desde el servidor mediante [Resend](https://resend.com/docs/api-reference/emails/send-email), sin dependencias adicionales. El destinatario inicial es `jcrnietos@gmail.com`.
+
+1. Crear una cuenta en Resend usando **jcrnietos@gmail.com**. El remitente de prueba `onboarding@resend.dev` solo permite enviar a la dirección de la propia cuenta ([restricción de pruebas](https://resend.com/docs/knowledge-base/403-error-resend-dev-domain)).
+2. Crear una API key con permiso de envío en https://resend.com/api-keys.
+3. Copiar `.env.example` a `.env.local` y completar `RESEND_API_KEY` allí. No compartir la clave ni subir `.env.local` a Git.
+4. Reiniciar `npm run dev`, completar el formulario y verificar la recepción en Gmail, incluyendo spam.
 
 ```dotenv
-CONTACT_WEBHOOK_URL=https://tu-servicio-de-recepcion.example/contacto
+RESEND_API_KEY=tu_clave_de_resend
+CONTACT_EMAIL_TO=jcrnietos@gmail.com
+CONTACT_EMAIL_FROM="Juan Nietos · Consultas <onboarding@resend.dev>"
 ```
 
-El receptor debe aceptar POST JSON con `nombre`, `empresa`, `email` y `necesidad`, guardar o entregar la consulta y responder 2xx cuando la recepción sea exitosa. La URL permanece en el servidor.
+El correo incluye asunto con la empresa, nombre, empresa, email y consulta con sus saltos de línea, en HTML y texto plano. El botón “Responder consulta” y la función “Responder” de Gmail dirigen la respuesta al email del interesado.
 
-Sin esta variable, el formulario devuelve un error; no simula envíos exitosos. Antes de publicar, conectar un receptor real y verificar la recepción. Las métricas del experimento todavía no tienen un proveedor configurado.
+Sin una clave configurada o si el proveedor rechaza el envío, el formulario muestra un error y conserva los datos. El éxito indica que Resend aceptó el correo; la entrega efectiva debe verificarse en la bandeja y en el panel de Resend.
+
+Al publicar, configurar las mismas variables en el hosting. Para reemplazar el destinatario personal, cambiar `CONTACT_EMAIL_TO`; para usar un remitente profesional, verificar su dominio en Resend y actualizar `CONTACT_EMAIL_FROM`. Las métricas del experimento todavía no tienen un proveedor configurado.
 
 ## Verificación
 
