@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Landing — SAP Integration Suite
 
-## Getting Started
+Landing de validación para consultoras SAP con Next.js, TypeScript y Tailwind CSS. Contenido basado en `AGENTS.md`.
 
-First, run the development server:
+## Desarrollo
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+src/
+├── app/
+│   ├── page.tsx
+│   ├── layout.tsx
+│   ├── globals.css
+│   ├── favicon.ico
+│   └── api/contacto/route.ts
+└── components/
+    ├── Navbar.tsx
+    ├── Hero.tsx
+    ├── Problemas.tsx
+    ├── Servicios.tsx
+    ├── ComoTrabajo.tsx
+    ├── SobreMi.tsx
+    ├── Contacto.tsx
+    └── Footer.tsx
+```
 
-## Learn More
+Todos los CTA llevan a `#contacto`. Los componentes se renderizan en el servidor, excepto el formulario, que gestiona estados de envío en el cliente.
 
-To learn more about Next.js, take a look at the following resources:
+## Recepción de consultas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Configurar en `.env.local` y en producción:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```dotenv
+CONTACT_WEBHOOK_URL=https://tu-servicio-de-recepcion.example/contacto
+```
 
-## Deploy on Vercel
+El receptor debe aceptar POST JSON con `nombre`, `empresa`, `email` y `necesidad`, guardar o entregar la consulta y responder 2xx cuando la recepción sea exitosa. La URL permanece en el servidor.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Sin esta variable, el formulario devuelve un error; no simula envíos exitosos. Antes de publicar, conectar un receptor real y verificar la recepción. Las métricas del experimento todavía no tienen un proveedor configurado.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Verificación
+
+```bash
+npm run lint
+npm run build
+```

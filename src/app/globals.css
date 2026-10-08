@@ -1,0 +1,130 @@
+@import "tailwindcss";
+@theme inline {
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+body {
+  background: white;
+  color: #14263d;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+  scroll-margin-top: 2rem;
+}
+
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 4px;
+}
+
+.container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section {
+  padding-block: 4rem;
+}
+
+.eyebrow {
+  margin-bottom: 1rem;
+  color: #1d4ed8;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  max-width: 46rem;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -.035em;
+}
+
+.section-intro {
+  max-width: 43rem;
+  margin-top: 1.25rem;
+  color: #475569;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.cta {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: .375rem;
+  background: #1d4ed8;
+  padding: .875rem 1.25rem;
+  color: white;
+  font-size: .875rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.cta:hover {
+  background: #1e40af;
+}
+
+.cta:disabled {
+  opacity: .65;
+  cursor: wait;
+}
+
+.field {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin-top: .5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: .375rem;
+  background: white;
+  padding: .75rem;
+  color: #14263d;
+  font-size: 1rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: .5rem;
+  left: .5rem;
+  z-index: 50;
+  transform: translateY(-200%);
+  background: white;
+  padding: 1rem;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 6rem;
+  }
+
+  .container {
+    padding-inline: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
